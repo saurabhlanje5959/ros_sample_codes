@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="robot_5">
+
+  <link name="world" />
+  <joint name="fixed" type="fixed">
+    <parent link="world" />
+    <child link="base_link" />
+  </joint>
+  <link
+    name="base_link">
+    <mass
+      value="0.84856" />
+    <inertia
+      ixx="0.0015368"
+      ixy="-7.141E-20"
+      ixz="5.8596E-20"
+      iyy="0.0015368"
+      iyz="-1.0085E-20"
+      izz="0.00098461" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="az_module">
+    <inertial>
+      <origin
+        xyz="0.035747 1.6483E-08 0.047495"
+        rpy="0 0 0" />
+      <mass
+        value="0.54194" />
+      <inertia
+        ixx="0.00044309"
+        ixy="5.4788E-13"
+        ixz="-0.00012991"
+        iyy="0.00094459"
+        iyz="1.9077E-10"
+        izz="0.00084223" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/az_module.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/az_module.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="continuous">
+    <origin
+      xyz="0 0 0.133"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="az_module" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="up_arm">
+    <inertial>
+      <origin
+        xyz="-0.017464 0.19896 0.19896"
+        rpy="0 0 0" />
+      <mass
+        value="1.4184" />
+      <inertia
+        ixx="0.040355"
+        ixy="-0.00080214"
+        ixz="-0.00080214"
+        iyy="0.020667"
+        iyz="-0.019858"
+        izz="0.020667" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/up_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/up_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="continuous">
+    <origin
+      xyz="0 0 0.054"
+      rpy="-0.7854 0 0" />
+    <parent
+      link="az_module" />
+    <child
+      link="up_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="low_arm">
+    <inertial>
+      <origin
+        xyz="-0.02744 0.16183 -0.16183"
+        rpy="0 0 0" />
+      <mass
+        value="1.2429" />
+      <inertia
+        ixx="0.03308"
+        ixy="0.0002475"
+        ixz="-0.0002475"
+        iyy="0.016811"
+        iyz="0.016298"
+        izz="0.016812" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/low_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/low_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="continuous">
+    <origin
+      xyz="-0.055297 0.34083 0.34083"
+      rpy="1.5708 0 0" />
+    <parent
+      link="up_arm" />
+    <child
+      link="low_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="w1">
+    <inertial>
+      <origin
+        xyz="-0.026 -1.676E-09 0.027508"
+        rpy="0 0 0" />
+      <mass
+        value="0.29868" />
+      <inertia
+        ixx="0.00051022"
+        ixy="-2.6742E-11"
+        ixz="-1.3226E-10"
+        iyy="0.00051306"
+        iyz="1.8198E-11"
+        izz="0.00010569" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="continuous">
+    <origin
+      xyz="-0.071803 0.33446 -0.33446"
+      rpy="-0.7854 0 0" />
+    <parent
+      link="low_arm" />
+    <child
+      link="w1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="w2">
+    <inertial>
+      <origin
+        xyz="2.861E-08 -0.026423 -0.030857"
+        rpy="0 0 0" />
+      <mass
+        value="0.31094" />
+      <inertia
+        ixx="0.0005339"
+        ixy="2.3376E-11"
+        ixz="2.701E-11"
+        iyy="0.00011762"
+        iyz="-9.3921E-06"
+        izz="0.00052312" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J5"
+    type="continuous">
+    <origin
+      xyz="-0.026 0 -0.0395"
+      rpy="0 0 0" />
+    <parent
+      link="w1" />
+    <child
+      link="w2" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="w3">
+    <inertial>
+      <origin
+        xyz="-0.00033202 0.09444 -6.2117E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.23019" />
+      <inertia
+        ixx="0.0004277"
+        ixy="1.495E-06"
+        ixz="1.276E-12"
+        iyy="0.00011992"
+        iyz="2.7984E-14"
+        izz="0.0003592" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/w3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J6"
+    type="continuous">
+    <origin
+      xyz="0 0.0395 -0.032"
+      rpy="0 -1.5708 0" />
+    <parent
+      link="w2" />
+    <child
+      link="w3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="fing1">
+    <inertial>
+      <origin
+        xyz="-0.0193 -0.0135 0.01139"
+        rpy="0 0 0" />
+      <mass
+        value="0.023742" />
+      <inertia
+        ixx="2.4691E-06"
+        ixy="2.1935E-20"
+        ixz="-8.7483E-21"
+        iyy="3.9747E-06"
+        iyz="-1.265E-20"
+        izz="4.3902E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/fing1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/fing1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F1"
+    type="prismatic">
+    <origin
+      xyz="0.01885 0.1415 0.04"
+      rpy="3.1416 0 0" />
+    <parent
+      link="w3" />
+    <child
+      link="fing1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-0.015"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+  <link
+    name="fing2">
+    <inertial>
+      <origin
+        xyz="-0.0193 -0.0135 -0.01136"
+        rpy="0 0 0" />
+      <mass
+        value="0.023678" />
+      <inertia
+        ixx="2.4569E-06"
+        ixy="-3.5816E-20"
+        ixz="-3.1178E-21"
+        iyy="3.9584E-06"
+        iyz="-8.8501E-15"
+        izz="4.3784E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/fing2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://robot_5/meshes/fing2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="F2"
+    type="prismatic">
+    <origin
+      xyz="0.01885 0.1415 -0.04"
+      rpy="3.1416 0 0" />
+    <parent
+      link="w3" />
+    <child
+      link="fing2" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="0.015"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.1" />
+  </joint>
+</robot>
